@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYNIQUE: High Heels, Higher Standards</title>
+    <style>
+        /* --- General Styling --- */
+        :root {
+            --primary-color: #9370DB; /* Medium Purple */
+            --secondary-color: #E6E6FA; /* Lavender Blish/Light Purple */
+            --text-color: #333;
+            --light-text-color: #fff;
+            --accent-color: #ff4500; /* For 'Add to Cart' */
+        }
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: var(--primary-color);
+            padding: 20px 5%;
+            color: var(--light-text-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-container h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+        }
+        .logo-container p {
+            margin: 0;
+            font-style: italic;
+        }
+        nav a {
+            color: var(--light-text-color);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* --- Hero Section (Welcome) --- */
+        #welcome-section {
+            background-color: var(--secondary-color);
+            text-align: center;
+            padding: 80px 5%;
+            border-bottom: 5px solid var(--primary-color);
+        }
+        #welcome-section h2 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        #welcome-section .slogan {
+            font-style: italic;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .welcome-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .shop-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--light-text-color);
+            padding: 10px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .shop-button:hover {
+            background-color: #cc3700;
+        }
+
+        /* --- About Section (History) --- */
+        #about-us {
+            padding: 50px 5%;
+            background-color: #f9f9f9;
+        }
+        #about-us h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            font-size: 2em;
+        }
+        .history-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .history-text {
+            flex: 1;
+        }
+        .store-image {
+            flex: 1;
+            max-width: 500px;
+        }
+        .store-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* --- Products Section --- */
+        #products {
+            padding: 50px 5%;
+            background-color: var(--secondary-color);
+            text-align: center;
+        }
+        #products h2 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .luxury-quote {
+            font-style: italic;
+            font-size: 1.5em;
+            margin-bottom: 50px;
+            color: var(--text-color);
+        }
+        .brand-section {
+            background-color: #fff;
+            padding: 30px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .brand-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .brand-logo {
+            width: 60px; /* Adjust as needed */
+            height: auto;
+            margin-right: 15px;
+        }
+        .brand-header h3 {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+            border-radius: 5px;
+            background-color: #fff;
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+        .product-card img {
+            width: 100%;
+            height: 200px; /* Fixed height for uniformity */
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .product-card .price {
+            font-weight: bold;
+            color: var(--accent-color);
+            margin: 5px 0 10px;
+        }
+        .add-to-cart-btn {
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            display: block;
+            width: 100%;
+        }
+        .add-to-cart-btn:hover {
+            background-color: #7953c8;
+        }
+        .cart-icon {
+            margin-right: 5px;
+            /* Placeholder for a cart icon or simple text */
+            font-size: 1.1em;
+        }
+
+        /* --- Branches Section --- */
+        #branches {
+            padding: 50px 5%;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        #branches h2 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .branches-quote {
+            font-style: italic;
+            font-size: 1.5em;
+            margin-bottom: 50px;
+            color: var(--text-color);
+        }
+        .branch-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .branch-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            width: 300px;
+            overflow: hidden;
+            text-align: left;
+        }
+        .branch-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .branch-info {
+            padding: 15px;
+        }
+        .branch-info h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+        .branch-info p {
+            margin: 5px 0;
+        }
+        .branch-info .contact {
+            font-weight: bold;
+        }
+
+        /* --- Contact Us Section --- */
+        #contact-us {
+            padding: 50px 5%;
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+            text-align: center;
+        }
+        #contact-us h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .contact-quote {
+            font-style: italic;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .contact-details {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        .contact-details p {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .social-links a {
+            color: var(--light-text-color);
+            font-size: 2em;
+            text-decoration: none;
+            transition: color 0.3s;
+            /* Placeholder for social media icons/logos */
+            border: 2px solid var(--light-text-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .social-links a:hover {
+            color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <h1>MYNIQUE</h1>
+            <p>HIGH HEELS, HIGHER STANDARDS</p>
+        </div>
+        <nav>
+            <a href="#welcome-section">HOME</a>
+            <a href="#about-us">ABOUT US</a>
+            <a href="#products">PRODUCTS</a>
+            <a href="#branches">BRANCHES</a>
+            <a href="#contact-us">CONTACT US</a>
+        </nav>
+    </header>
+
+    <section id="welcome-section">
+        <h2>WELCOME TO MYNIQUE</h2>
+        <p class="slogan">"Where every step is a statement and every heel is a testament to timeless style and sophistication."</p>
+        <div class="welcome-content">
+            <p>Step into a world where every pair of heels tells a story. Whether you’re slaying the office, dancing the night away, or just treating yourself, Mynique’s got the perfect kicks to match your vibe. From bold block heels to elegant stilettos, we blend comfort, style, and a little magic.</p>
+            <a href="#products" class="shop-button">Shop Now and Own the Moment!</a>
+        </div>
+        <img src="D:\HEELS\shop & store\lg.jpg" alt="Mynique Logo" style="display: none;">
+    </section>
+
+    <section id="about-us">
+        <h2>ABOUT US (HISTORY OF OUR BUSINESS)</h2>
+        <div class="history-content">
+            <div class="history-text">
+                <h3>MYNIQUE</h3>
+                <p>Began in **2021** with a simple vision: to provide women with access to high-quality, fashionable, and comfortable heels. What started as a small passion project selling unique designs online has grown into a trusted brand known for its commitment to style and quality.</p>
+                <p>We believe that a great pair of heels can transform not just an outfit, but also your confidence. Our mission is to combine elegance with comfort, ensuring every woman feels fabulous in our shoes.</p>
+            </div>
+            <div class="store-image">
+                <img src="D:\HEELS\shop & store\shop.jpg" alt="Mynique Store Interior">
+            </div>
+        </div>
+    </section>
+
+    <section id="products">
+        <h2>OUR LUXURY COLLECTIONS</h2>
+        <p class="luxury-quote">" OUR LUXURY COLLECTIONS "</p>
+
+        <div class="brand-section">
+            <div class="brand-header">
+                <img src="[INSERT VERSACE LOGO HERE]" alt="Versace Logo" class="brand-logo">
+                <h3>VERSACE</h3>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="[INSERT IMAGE FOR Medusa Aevitas Platform]" alt="Medusa Aevitas Platform">
+                    <h4>1. Medusa Aevitas Platform</h4>
+                    <p class="price">Price: [PRICE]</p>
+                    <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="[INSERT IMAGE FOR Safety Pin Pump]" alt="Safety Pin Pump">
+                    <h4>2. Safety Pin Pump</h4>
+                    <p class="price">Price: [PRICE]</p>
+                    <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="[INSERT IMAGE FOR Virtus Mule]" alt="Virtus Mule">
+                    <h4>3. Virtus Mule</h4>
+                    <p class="price">Price: [PRICE]</p>
+                    <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="[INSERT IMAGE FOR La Medusa Pump]" alt="La Medusa Pump">
+                    <h4>4. La Medusa Pump</h4>
+                    <p class="price">Price: [PRICE]</p>
+                    <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="[INSERT IMAGE FOR Greca Chain Heel]" alt="Greca Chain Heel">
+                    <h4>5. Greca Chain Heel</h4>
+                    <p class="price">Price: [PRICE]</p>
+                    <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+                </div>
+                 <div class="product-card">
+                    <img src="[INSERT IMAGE FOR Medusa Aevitas Pointy]" alt="Medusa Aevitas Pointy">
+                    <h4>6. Medusa Aevitas Pointy</h4>
+                    <p class="price">Price: [PRICE]</p>
+                    <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+                </div>
+                 <div class="product-card">
+                    <img src="[INSERT IMAGE FOR Gianni Ribbon]" alt="Gianni Ribbon">
+                    <h4>7. Gianni Ribbon</h4>
+                    <p class="price">Price: [PRICE]</p>
+                    <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+                </div>
+                 <div class="product-card">
+                    <img src="[INSERT IMAGE FOR Greca Goddess Sandals]" alt="Greca Goddess Sandals">
+                    <h4>8. Greca Goddess Sandals</h4>
+                    <p class="price">Price: [PRICE]</p>
+                    <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+                </div>
+                 <div class="product-card">
+                    <img src="[INSERT IMAGE FOR Intrico Platform Loafers]" alt="Intrico Platform Loafers">
+                    <h4>9. Intrico Platform Loafers</h4>
+                    <p class="price">Price: [PRICE]</p>
+                    <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+                </div>
+                 <div class="product-card">
+                    <img src="[INSERT IMAGE FOR Versace Leather Heels]" alt="Versace Leather Heels">
+                    <h4>10. Versace Leather Heels</h4>
+                    <p class="price">Price: [PRICE]</p>
+                    <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+                </div>
+                </div>
+        </div>
+
+        <div class="brand-section">
+            <div class="brand-header">
+                <img src="[INSERT YSL LOGO HERE]" alt="YSL Logo" class="brand-logo">
+                <h3>YSL</h3>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="[INSERT IMAGE FOR Opyum Logo Heels Pump]" alt="Opyum Logo Heels Pump">
+                    <h4>1. Opyum Logo Heels Pump</h4>
+                    <p class="price">Price: [PRICE]</p>
+                    <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="[INSERT IMAGE FOR Tribute Platform Sandal]" alt="Tribute Platform Sandal">
+                    <h4>2. Tribute Platform Sandal</h4>
+                    <p class="price">Price: [PRICE]</p>
+                    <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="[INSERT IMAGE FOR Cassandra Platform Sandal]" alt="Cassandra Platform Sandal">
+                    <h4>3. Cassandra Platform Sandal</h4>
+                    <p class="price">Price: [PRICE]</p>
+                    <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="[INSERT IMAGE FOR Anja Leather Pump]" alt="Anja Leather Pump">
+                    <h4>4. Anja Leather Pump</h4>
+                    <p class="price">Price: [PRICE]</p>
+                    <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="[INSERT IMAGE FOR Babylone Sandal]" alt="Babylone Sandal">
+                    <h4>5. Babylone Sandal</h4>
+                    <p class="price">Price: [PRICE]</p>
+                    <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="[INSERT IMAGE FOR Tribtoo Gray Suede]" alt="Tribtoo Gray Suede">
+                    <h4>6. Tribtoo Gray Suede</h4>
+                    <p class="price">Price: [PRICE]</p>
+                    <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="[INSERT IMAGE FOR Studded Tribute Mule]" alt="Studded Tribute Mule">
+                    <h4>7. Studded Tribute Mule</h4>
+                    <p class="price">Price: [PRICE]</p>
+                    <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="[INSERT IMAGE FOR Exi Platform Sandal]" alt="Exi Platform Sandal">
+                    <h4>8. Exi Platform Sandal</h4>
+                    <p class="price">Price: [PRICE]</p>
+                    <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="[INSERT IMAGE FOR Lexi Metalic]" alt="Lexi Metalic">
+                    <h4>9. Lexi Metalic</h4>
+                    <p class="price">Price: [PRICE]</p>
+                    <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="[INSERT IMAGE FOR Leather Slingback Pump]" alt="Leather Slingback Pump">
+                    <h4>10. Leather Slingback Pump</h4>
+                    <p class="price">Price: [PRICE]</p>
+                    <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+                </div>
+            </div>
+        </div>
+<div class="brand-section">
+    <div class="brand-header">
+        <img src="[INSERT LOUIS VUITTON LOGO HERE]" alt="Louis Vuitton Logo" class="brand-logo">
+        <h3>LOUIS VUITTON</h3>
+    </div>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Archligth Pump]" alt="Archligth Pump">
+            <h4>1. Archligth Pump</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Star Trail Ankle Boots]" alt="Star Trail Ankle Boots">
+            <h4>2. Star Trail Ankle Boots</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Monogram Silhouette Heel]" alt="Monogram Silhouette Heel">
+            <h4>3. Monogram Silhouette Heel</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Cherie Slingback Pump]" alt="Cherie Slingback Pump">
+            <h4>4. Cherie Slingback Pump</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Podium Platform Sandal]" alt="Podium Platform Sandal">
+            <h4>5. Podium Platform Sandal</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Afterglow Platform Ankle Boots]" alt="Afterglow Platform Ankle Boots">
+            <h4>6. Afterglow Platform Ankle Boots</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Steamline Lace up Pumps]" alt="Steamline Lace up Pumps">
+            <h4>7. Steamline Lace up Pumps</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Monogram Ankle Boots]" alt="Monogram Ankle Boots">
+            <h4>8. Monogram Ankle Boots</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Fame Platform Sandal]" alt="Fame Platform Sandal">
+            <h4>9. Fame Platform Sandal</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Shake Sandal]" alt="Shake Sandal">
+            <h4>10. Shake Sandal</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+<div class="brand-section">
+    <div class="brand-header">
+        <img src="[INSERT LOUBOUTIN LOGO HERE]" alt="Louboutin Logo" class="brand-logo">
+        <h3>LOUBOUTIN</h3>
+    </div>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR So Kate 120 Pump]" alt="So Kate 120 Pump">
+            <h4>1. So Kate 120 Pump</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Condora Sling Pump]" alt="Condora Sling Pump">
+            <h4>2. Condora Sling Pump</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Just Queen Mule]" alt="Just Queen Mule">
+            <h4>3. Just Queen Mule</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Hot Chick Heels]" alt="Hot Chick Heels">
+            <h4>4. Hot Chick Heels</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Paloma Clutch Heels]" alt="Paloma Clutch Heels">
+            <h4>5. Paloma Clutch Heels</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Just Nothing Sandal]" alt="Just Nothing Sandal">
+            <h4>6. Just Nothing Sandal</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Cassia Lace up]" alt="Cassia Lace up">
+            <h4>7. Cassia Lace up</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Follies Strass Heels]" alt="Follies Strass Heels">
+            <h4>8. Follies Strass Heels</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Lady Peep Platform]" alt="Lady Peep Platform">
+            <h4>9. Lady Peep Platform</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Kate 100 Patent Pump]" alt="Kate 100 Patent Pump">
+            <h4>10. Kate 100 Patent Pump</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Clare Sling Patent Slingback]" alt="Clare Sling Patent Slingback">
+            <h4>11. Clare Sling Patent Slingback</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+    </div>
+</div>
+<div class="brand-section">
+    <div class="brand-header">
+        <img src="[INSERT JIMMY CHOO LOGO HERE]" alt="Jimmy Choo Logo" class="brand-logo">
+        <h3>JIMMY CHOO</h3>
+    </div>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Gold Satin With Crystal]" alt="Gold Satin With Crystal">
+            <h4>1. Gold Satin With Crystal</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Averline 100 bow trimmed]" alt="Averline 100 bow trimmed">
+            <h4>2. Averline 100 bow trimmed</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR 100mm Stevie Pumps]" alt="100mm Stevie Pumps">
+            <h4>3. 100mm Stevie Pumps</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Rose Mix Crystal Covered Pointy Toe Pump]" alt="Rose Mix Crystal Covered Pointy Toe Pump">
+            <h4>4. Rose Mix Crystal Covered Pointy Toe Pump</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Bobbie 100 Rosewood]" alt="Bobbie 100 Rosewood">
+            <h4>5. Bobbie 100 Rosewood</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Olesia 95 Nappa Leather]" alt="Olesia 95 Nappa Leather">
+            <h4>6. Olesia 95 Nappa Leather</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Abel lace up Pump]" alt="Abel lace up Pump">
+            <h4>7. Abel lace up Pump</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Averly 100 bow trimmed]" alt="Averly 100 bow trimmed">
+            <h4>8. Averly 100 bow trimmed</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Patent Leather Sandals Azia 95]" alt="Patent Leather Sandals Azia 95">
+            <h4>9. Patent Leather Sandals Azia 95</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="[INSERT IMAGE FOR Shiloh Heels]" alt="Shiloh Heels">
+            <h4>10. Shiloh Heels</h4>
+            <p class="price">Price: [PRICE]</p>
+            <button class="add-to-cart-btn"><span class="cart-icon">🛒</span> Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+<section id="contact-us">
+    <div class="container content-box">
+        <h2>Contact Us</h2>
+        <p style="text-align: center; font-style: italic; margin-bottom: 25px;">
+            "We'd love to hear from you! Reach out to us through any of the channels below."
+        </p>
+
+        <div class="contact-details" style="text-align: center; line-height: 1.8;">
+            <p><strong>Head Office Address:</strong> MYNIQUE Tower, 123 Elegance St., Brgy. Catwalk, Metro Manila, Philippines</p>
+            <p><strong>Telephone:</strong> (02) 8888-MYNIQ (888-69647)</p>
+            <p><strong>Mobile/Viber:</strong> +63 917 MYNIQUE (696-4783)</p>
+            <p><strong>Email Address:</strong> <a href="mailto:info@myniqueheels.com">info@myniqueheels.com</a></p>
+        </div>
+
+        <div class="social-links" style="text-align: center; margin-top: 30px;">
+            <p>Connect with us on social media:</p>
+            <a href="https://facebook.com/mynique" target="_blank" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com/mynique" target="_blank" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/mynique" target="_blank" title="Twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://pinterest.com/mynique" target="_blank" title="Pinterest" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+            <a href="https://tiktok.com/@mynique" target="_blank" title="TikTok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="mailto:info@mynique.com" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p style="font-size: 0.8em; text-align: center; margin-top: 10px;">(Note: Icons require a font library like Font Awesome to display correctly)</p>
+    </div>
+</section>
+
+<footer>
+    <p style="text-align: center;">&copy; 2025 MYNIQUE. All Rights Reserved. | High Heels, Higher Standards</p>
+</footer>
+
+
+</body>
+</html>
